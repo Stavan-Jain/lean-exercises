@@ -10,13 +10,12 @@ Hands-on exercises for the [Lean 4](https://lean-lang.org) theorem prover. There
 
 This will use your GitHub Codespaces usage. As of 9/2/2026, free GitHub accounts get 120 core-hours/month. 
 
-1. You need a [GitHub account](https://github.com/signup) (free).
+1. You need a [GitHub account](https://github.com/signup).
 2. Click **[Open in GitHub Codespaces](https://github.com/codespaces/new?repo=1348986782&ref=main&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json&hide_repo_select=true&skip_quickstart=true)**.
 3. Everything is preselected (this repo, `main`, the **4-core** machine) — just
    press **Create codespace** and wait for VS Code to appear with
-   `E1_Logic.lean` open. Creation can take a few minutes; once a `.lean` file
-   is open, give the Lean server ~30 seconds to load mathlib.
-4. Work through, in order — replace each `sorry` with a proof:
+   `E1_Logic.lean` open. Creation and loading mathlib can take a 5-10 minutes
+4. Work through, in order
 
    | file | what | 
    | --- | --- | 
