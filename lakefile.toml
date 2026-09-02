@@ -1,0 +1,39 @@
+# Exercises for a hands-on Lean tutorial. Stage 1: mathlib only, pinned to
+# the EXACT toolchain and mathlib revision QECLean uses, so that stage 2 —
+# adding
+#
+#   [[require]]
+#   name = "QEC"
+#   git = "https://github.com/Stavan-Jain/QECLean.git"
+#   rev = "<pin a commit>"
+#
+# for the quantum exercise sessions — resolves the identical mathlib and
+# changes nothing for the Session1 files. Do not `lake update` casually: the manifest
+# is copied from QECLean's and is load-bearing.
+name = "tutorial"
+version = "0.1.0"
+defaultTargets = ["Tutorial"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+autoImplicit = false
+
+# mathlib at the revision pinned by QECLean's lake-manifest.json
+# (toolchain v4.30.0-rc2).
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "a3fde5017d59fa3cef8d4d24999f6b9b71b89a3b"
+
+# SetVennPanel, the widget used by E3_Sets: draws the tactic state of a
+# set-theory goal as a live Venn/Euler diagram in the infoview. Pinned by
+# commit; lake builds dependencies with THIS repo's toolchain and mathlib
+# pin (compatibility verified), so lean-widgets' own lean-toolchain does not
+# need to match.
+[[require]]
+name = "lean-widgets"
+git = "https://github.com/Stavan-Jain/lean-widgets"
+rev = "d58c57cbb42b8de472968c8433deb7afab8e9feb"
+
+[[lean_lib]]
+name = "Tutorial"

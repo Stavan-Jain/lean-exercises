@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Installs elan, fetches mathlib's olean cache, runs `lake build`.
+      # Every file must elaborate; the exercise files warn about their
+      # deliberate `sorry`s, which is fine.
+      - uses: leanprover/lean-action@v1
+
+      # The guarantee that matters for a live session: every exercise is
+      # actually provable with the shipped toolchain.
+      - name: Solutions are sorry-free
+        run: |
+          ! grep -rnw --include='*.lean' sorry Tutorial/Session1/Solutions

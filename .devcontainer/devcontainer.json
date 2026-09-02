@@ -1,0 +1,33 @@
+{
+  "name": "Lean tutorial",
+  "build": { "dockerfile": "Dockerfile" },
+  "remoteUser": "vscode",
+
+  // Stage 1 (session-1 exercises) needs only mathlib's olean cache, which a
+  // 2-core box could carry — but hostRequirements stay at 4-core/16 GB so the
+  // machine matches stage 2, when the QECLean dependency and its ~5.7 GB-peak
+  // QECLight build join this container (see QECLean's .devcontainer, which
+  // this mirrors).
+  "hostRequirements": { "cpus": 4, "memory": "16gb", "storage": "32gb" },
+
+  "customizations": {
+    "vscode": {
+      "extensions": ["leanprover.lean4"],
+      "settings": {
+        "lean4.alwaysShowTitleBarMenu": true
+      }
+    }
+  },
+
+  // Runs while the container is being created, and is the step a Codespaces
+  // prebuild captures — with prebuilds on, this is already done before anyone
+  // opens the repo.
+  "onCreateCommand": ".devcontainer/setup.sh",
+  "waitFor": "onCreateCommand",
+
+  // Land attendees on the first exercise file so the mathlib imports start
+  // loading immediately (they take ~30 s on first open).
+  "postAttachCommand": {
+    "open-first-exercise": "code Tutorial/Session1/E1_Logic.lean || true"
+  }
+}
