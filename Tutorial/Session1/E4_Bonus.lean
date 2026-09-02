@@ -5,14 +5,13 @@
   Two new things.
 
   1. quantifiers: you prove `∀ x, …` by fixing an arbitrary `x` with
-  `intro x` — the same move as for `→`, and what E3's `⊆` proofs were
-  already doing — and you use a `∀` hypothesis by feeding it a value
+  `intro x`. You use a `∀` hypothesis by feeding it a value
   (`h 3`, or `apply h`). You prove `∃ n, …` by supplying a concrete
   witness (`use`), and you use such a hypothesis by extracting its
   witness (`obtain`).
 
   2. finiteness: a `∀` over a finite type can
-  be proved by checking every case, and `decide` does exactly that. The
+  be proved by checking every case. The `decide` tactic does exactly that. The
   finite type here is `ZMod 2` — the integers mod 2.
 
   NEW TACTICS
@@ -49,17 +48,16 @@ example (h : ∃ n : ℕ, n + 3 = 10) : ∃ m : ℕ, m + 4 = 11 := by
 example : ∀ n : ℕ, ∃ m : ℕ, n < m := by
   sorry
 
-/-  2 · A definition of our own -/
+/-  2 · IsEven -/
 
--- The definition from the talk. Note `IsEven n` is literally an ∃ — so
--- `use` and `obtain` are the tools for it.
+-- The definition from the talk.
 def IsEven (n : ℕ) : Prop := ∃ k : ℕ, n = k + k
 
 -- 2.1
 example : IsEven 10 := by
   sorry
 
--- 2.2  (After `use`, the leftover goal is a ring identity.)
+-- 2.2
 example (n : ℕ) : IsEven (2 * n) := by
   sorry
 
