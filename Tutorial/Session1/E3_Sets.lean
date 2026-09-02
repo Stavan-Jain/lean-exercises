@@ -76,7 +76,7 @@ example : s ∩ (s ∪ t) = s := by
 example : s ∪ s ∩ t = s := by
   sorry
 
-/-  3 · Stretch: set difference -/
+/-  3 · Set difference -/
 
 -- 3.1  `x ∈ s \ t` unfolds to `x ∈ s ∧ x ∉ t`, and `x ∉ t` is
 --      `x ∈ t → False`.
@@ -90,7 +90,7 @@ example : s ∩ t = t ∩ s := by
   ext x
   simp [and_comm]
 
-/- Infinite unions and intersections, images, preimages — and these same
-   exercises with full prose — are Mathematics in Lean, Chapter 4.         -/
+/- Infinite unions and intersections, images, preimages (and these same
+   exercises with full prose) are Mathematics in Lean, Chapter 4.         -/
 
 end

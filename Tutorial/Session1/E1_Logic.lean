@@ -100,16 +100,15 @@ example : P ∧ Q ↔ Q ∧ P := by
 
 /-  5 · Stretch -/
 
--- 5.1  `¬P` is definitionally `P → False` — so this is 1.3 in disguise.
+-- 5.1  `¬P` is definitionally `P → False`.
 example (hP : P) : ¬¬P := by
   sorry
 
--- 5.2  Capstone: everything at once.
+-- 5.2
 example : P ∧ (Q ∨ R) → (P ∧ Q) ∨ (P ∧ R) := by
   sorry
 
-/- Everything in this file is one tactic away: `tauto` decides propositional
-   logic -/
+/- The `tauto` tactic decides propositional logic -/
 example : P ∧ (Q ∨ R) → (P ∧ Q) ∨ (P ∧ R) := by
   tauto
 

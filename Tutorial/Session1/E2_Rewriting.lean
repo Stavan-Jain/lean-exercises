@@ -8,7 +8,7 @@
 
   TACTICS FOR THIS FILE
     rw [thm]        rewrite the goal left-to-right with the equality `thm`
-    rw [← thm]      …right-to-left (type \l for ←)
+    rw [← thm]      right-to-left (type \l for ←)
     rw [thm] at h   rewrite inside hypothesis `h` instead of the goal
     calc            chain a computation through intermediate steps
     ring            close ANY identity that holds in every commutative ring
@@ -41,7 +41,7 @@ example : a * b * c = b * (a * c) := by
 example : c * b * a = b * (a * c) := by
   sorry
 
--- 1.2  (`←` is useful here)
+-- 1.2  `←` is useful here (see introduction for what rw [← thm] does)
 example : a * (b * c) = b * (a * c) := by
   sorry
 
@@ -59,11 +59,12 @@ example (h : a * b = c * d) (h' : e = f) : a * (b * e) = c * (d * f) := by
 example (h : b * c = e * f) : a * b * c * d = a * e * f * d := by
   sorry
 
+-- This might be useful for 2.2
+#check sub_self
+
 -- 2.2
 example (hyp : c = b * a - d) (hyp' : d = a * b) : c = 0 := by
   sorry
-
-#check sub_self
 
 /-  3 · calc: proofs that read like math -/
 
