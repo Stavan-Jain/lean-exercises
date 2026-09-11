@@ -25,6 +25,15 @@
   "onCreateCommand": ".devcontainer/setup.sh",
   "waitFor": "onCreateCommand",
 
+  // Runs on every container start (including a resume), in the background.
+  // Nothing is built here — a prebuilt codespace has the oleans already; this
+  // just reads them into the page cache while VS Code and the Lean extension
+  // are still starting, so the first `import Mathlib.Tactic` is not waiting on
+  // a cold network-backed disk. See warm-cache.sh for the measurements.
+  "postStartCommand": {
+    "warm-olean-cache": "nohup .devcontainer/warm-cache.sh >/tmp/warm-cache.log 2>&1 &"
+  },
+
   // Land attendees on the first exercise file so the mathlib imports start
   // loading immediately (they take ~30 s on first open).
   "postAttachCommand": {
