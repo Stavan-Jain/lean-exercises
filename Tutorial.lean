@@ -10,3 +10,8 @@ import Tutorial.Session1.Solutions.E1_Logic
 import Tutorial.Session1.Solutions.E2_Rewriting
 import Tutorial.Session1.Solutions.E3_Sets
 import Tutorial.Session1.Solutions.E4_Bonus
+import Tutorial.Session2.Demo2
+import Tutorial.Session2.E5_FiveQubit
+import Tutorial.Session2.E6_YourCode
+import Tutorial.Session2.Solutions.E5_FiveQubit
+import Tutorial.Session2.Solutions.E6_YourCode

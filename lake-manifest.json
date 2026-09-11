@@ -121,6 +121,30 @@
       "inputRev": "v4.30.0-rc2",
       "inherited": true,
       "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/hanwenzhu/LeanArchitect.git",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "f1c14e1c14290117ffcb017cf2d089a6a5e1523a",
+      "name": "LeanArchitect",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "v4.30.0-rc2",
+      "inherited": true,
+      "configFile": "lakefile.lean"
+    },
+    {
+      "url": "https://github.com/Stavan-Jain/QECLean.git",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "12689e297318a0e7bcd298fc6f0d6c51abe06fad",
+      "name": "QEC",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "12689e297318a0e7bcd298fc6f0d6c51abe06fad",
+      "inherited": false,
+      "configFile": "lakefile.toml"
     }
   ],
   "name": "tutorial",

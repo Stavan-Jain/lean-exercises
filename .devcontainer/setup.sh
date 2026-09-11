@@ -4,12 +4,10 @@
 #
 #   1. install the toolchain pinned in `lean-toolchain`
 #   2. pull mathlib's prebuilt oleans from the cache (never build mathlib)
-#   3. build the tutorial files (small; the exercise files warn about their
+#   3. build QECLight — QECLean minus its bivariate-bicycle leaves, which need
+#      more memory than this container has (see QECLean's setup.sh)
+#   4. build the tutorial files (small; the exercise files warn about their
 #      `sorry`s by design)
-#
-# Stage 2 (QCE26): when the QECLean dependency lands for the session-2
-# exercises, add `lake build QECLight` after step 2 — see QECLean's setup.sh
-# for the memory rationale.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -20,6 +18,9 @@ elan override set "$(cat lean-toolchain)"
 
 echo "==> Fetching mathlib cache"
 lake exe cache get
+
+echo "==> Building QECLight"
+lake build QEC/QECLight
 
 echo "==> Building the tutorial files"
 lake build

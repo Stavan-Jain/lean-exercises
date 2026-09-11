@@ -19,4 +19,4 @@ jobs:
       # actually provable with the shipped toolchain.
       - name: Solutions are sorry-free
         run: |
-          ! grep -rnw --include='*.lean' sorry Tutorial/Session1/Solutions
+          ! grep -rnw --include='*.lean' sorry Tutorial/Session*/Solutions

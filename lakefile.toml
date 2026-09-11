@@ -1,15 +1,8 @@
-# Exercises for a hands-on Lean tutorial. Stage 1: mathlib only, pinned to
-# the EXACT toolchain and mathlib revision QECLean uses, so that stage 2 —
-# adding
-#
-#   [[require]]
-#   name = "QEC"
-#   git = "https://github.com/Stavan-Jain/QECLean.git"
-#   rev = "<pin a commit>"
-#
-# for the quantum exercise sessions — resolves the identical mathlib and
-# changes nothing for the Session1 files. Do not `lake update` casually: the manifest
-# is copied from QECLean's and is load-bearing.
+# Exercises for a hands-on Lean tutorial. Two stages, one manifest: the
+# toolchain and mathlib revision are the EXACT ones QECLean uses, copied from
+# its lake-manifest.json, so that requiring QECLean (stage 2, below) resolves
+# the identical mathlib and changes nothing for the Session1 files. Do not
+# `lake update` casually: the manifest is handcrafted and load-bearing.
 name = "tutorial"
 version = "0.1.0"
 defaultTargets = ["Tutorial"]
@@ -34,6 +27,15 @@ rev = "a3fde5017d59fa3cef8d4d24999f6b9b71b89a3b"
 name = "lean-widgets"
 git = "https://github.com/Stavan-Jain/lean-widgets"
 rev = "d58c57cbb42b8de472968c8433deb7afab8e9feb"
+
+# QECLean, for the session-2 demo and exercises (`Tutorial/Session2`). Pinned to a
+# commit on its main; same toolchain and mathlib pin as above. Import from the
+# `QECLight` surface or specific modules — never `import QEC`: the bivariate-
+# bicycle leaves need more memory than a 4-core container has.
+[[require]]
+name = "QEC"
+git = "https://github.com/Stavan-Jain/QECLean.git"
+rev = "12689e297318a0e7bcd298fc6f0d6c51abe06fad"
 
 [[lean_lib]]
 name = "Tutorial"
